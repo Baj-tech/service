@@ -43,7 +43,7 @@ function Header() {
             width={180} height={80}
             />*/}
             <Link href={'/'}>
-            <h2 className='text-primary font-bold text-2xl '>Maximum <span className='text-secondary font-none'>.com</span></h2>
+            <h2 className='text-primary font-bold text-2xl '>Maxi<span className='text-secondary font-none'>.com</span></h2>
             </Link>
             <ul className='md:flex gap-8 hidden'>
                 {Menu.map((item,index)=>(
