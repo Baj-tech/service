@@ -1,218 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Button} from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
+import GlobalApi from '../_utils/GlobalApi'
+import Image from 'next/image'
+import Link from 'next/link'
 
 function Hero() {
+  const [categoryList,setCategoryList]=useState([]);
+  useEffect(()=>{
+    getCategoryList()
+  },[])
+
+  const getCategoryList=()=>{
+    GlobalApi.getCategory().then(resp=>{
+      console.log(resp.data.data);
+      setCategoryList(resp.data.data);
+    })
+  }     
+
   return (
     <section>
   <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
     <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
       <div className="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
-        <h2 className="text-3xl font-bold sm:text-4xl">Find your
+        <h2 className="text-3xl font-bold sm:text-4xl">Search
            <span className='text-primary p-2'>Product</span>
-          and Book for
-          <span className='text-primary p-2'>Services</span></h2>
+          and Place your
+          <span className='text-primary p-2'>Order</span></h2>
 
-        <p className="mt-4 text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero aliquid sint distinctio
-          iure ipsum cupiditate? Quis, odit assumenda? Deleniti quasi inventore, libero reiciendis
-          minima aliquid tempora. Obcaecati, autem.
-        </p>
-
-        <Button className='mt-10'>Explore Now</Button>
+        <Input className="mt-6" type="text" placeholder="Search..." />
+      <Button className='mt-10' type="submit">
+        <Search className='h-4 w-4 mr-2'/>
+        Search</Button>
       </div>
 
+      {/* Display List of Category  */}
+
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        <a
+      {categoryList.length>0?categoryList.map((item,index)=>index<6&&(
+        <Link
           className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#"
+          href={'/search/'+item.attributes.Name} key={index}
         >
           <span className="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
+          <Image src={item.attributes?.Icon?.data.attributes?.url}
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            alt='icon'
+            width={30}
+            height={30}/>
+            <label className='text-blue-600 mt-2 font-bold'>{item?.attributes?.Name}</label>
           </span>
+        </Link>
+        ))
+        :
+        [1,2,3,4,5,6].map((item,index)=>(
+          <div key={index} className=' bg-slate-200 m-2
+          w-[130px] h-[120px] rounded-lg animate-pulse'>
+              
+          </div>
+      ))
+       
+        }
 
-          <h2 className="mt-2 font-bold">Accountant</h2>
-
-          <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-        </a>
-
-        <a
-          className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#"
-        >
-          <span className="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 className="mt-2 font-bold">Accountant</h2>
-
-          <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-        </a>
-
-        <a
-          className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#"
-        >
-          <span className="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 className="mt-2 font-bold">Accountant</h2>
-
-          <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-        </a>
-
-        <a
-          className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#"
-        >
-          <span className="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 className="mt-2 font-bold">Accountant</h2>
-
-          <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-        </a>
-
-        <a
-          className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#"
-        >
-          <span className="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 className="mt-2 font-bold">Accountant</h2>
-
-          <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-        </a>
-
-        <a
-          className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#"
-        >
-          <span className="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 className="mt-2 font-bold">Accountant</h2>
-
-          <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-        </a>
       </div>
     </div>
   </div>

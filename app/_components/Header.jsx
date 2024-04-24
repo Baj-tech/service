@@ -74,7 +74,7 @@ function Header() {
             <ul className='flex  flex-col gap-2'>
            
             <Link href={'/my-booking'} className='cursor-pointer
-             hover:bg-slate-100 p-2 rounded-md'>My Order</Link>
+             hover:bg-slate-100 p-2 rounded-md'>Order</Link>
                 <li className='cursor-pointer
              hover:bg-slate-100 p-2 rounded-md'>
                 <LogoutLink> Logout </LogoutLink></li>

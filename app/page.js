@@ -24,7 +24,7 @@ export default function Home() {
         <Hero/>
 
         {/* Search bar + Categories  */}
-        <CategorySearch/>
+        
 
         {/* Popular Doctor List  */}
         <ServiceList serviceList={serviceList}/>
