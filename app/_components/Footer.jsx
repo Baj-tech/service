@@ -10,7 +10,7 @@ function Footer() {
      width={200}
      height={100}
      />*/}
-     <h2 className='text-primary text-1xl font-bold sm:text-2xl'>Maximum Comunication</h2>
+     <h2 className='text-primary text-1xl font-bold sm:text-2xl'>Maximum Comunication 7</h2>
   
       <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
         get your mobile device from our store with reliably and secure service.
