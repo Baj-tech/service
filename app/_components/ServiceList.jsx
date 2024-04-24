@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function ServiceList({serviceList,heading='Latest'}) {
+function ServiceList({serviceList,heading='All'}) {
   return (
     <div className='mb-10 px-8'>
         <h2 className='font-bold text-xl'>
@@ -31,9 +31,10 @@ function ServiceList({serviceList,heading='Latest'}) {
                         <Link href={'/details/'+service?.id} className='w-full'>
                         <h2 className='p-2 px-3 border-[1px] border-primary
                         text-primary rounded-full w-full text-center
-                        text-[11px] mt-2
+                        text-[12px] mt-2
                         cursor-pointer 
-                        hover:bg-primary hover:text-white'>Order Now</h2>
+                        font-bold
+                        hover:bg-primary hover:text-white'>Click Order</h2>
                         </Link>
                     </div>
                 </div>

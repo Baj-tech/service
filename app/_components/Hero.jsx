@@ -24,12 +24,8 @@ function Hero() {
   <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
     <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-16 mb-10 items-center px-5">
       <div className="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
-        <h2 className="text-2xl font-bold sm:text-3xl">Search
-           <span className='text-primary p-2'>Product</span>
-          and Place your
-          <span className='text-primary p-2'>Order</span></h2>
 
-        <Input className="mt-6" type="text" placeholder="Search..." />
+        <Input className="mt-6" type="text" placeholder="Search Product..." />
       <Button className='mt-10' type="submit">
         <Search className='h-4 w-4 mr-2'/>
         Search</Button>
