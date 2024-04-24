@@ -1,4 +1,8 @@
 {
   "/page": "app/page.js",
-  "/api/auth/[kindeAuth]/route": "app/api/auth/[kindeAuth]/route.js"
+  "/api/auth/[kindeAuth]/route": "app/api/auth/[kindeAuth]/route.js",
+  "/(route)/details/[recordId]/page": "app/(route)/details/[recordId]/page.js",
+  "/(route)/my-booking/page": "app/(route)/my-booking/page.js",
+  "/api/sendEmail/route": "app/api/sendEmail/route.js",
+  "/(route)/search/[cname]/page": "app/(route)/search/[cname]/page.js"
 }

@@ -20,8 +20,8 @@ function Header() {
         },
         {
             id:2,
-            name:'Explore',
-            path:'/explore'
+            name:'Search',
+            path:'/search'
         },
         {
             id:3,
@@ -38,12 +38,12 @@ function Header() {
   return (
     <div className='flex items-center 
     justify-between p-4 shadow-sm'>
-        <div className='flex items-center'>
+        <div className='flex items-center items-center'>
             {/*<Image src='/logo.svg' alt='logo'
             width={180} height={80}
             />*/}
             <Link href={'/'}>
-            <h2 className='text-primary font-bold text-2xl '>Maxi<span className='text-secondary font-none'>.com</span></h2>
+            <h2 className='text-primary font-bold text-2xl '>Maxi<span className='text-secondary font-none md:mr-10'>.com</span></h2>
             </Link>
             <ul className='md:flex gap-8 hidden'>
                 {Menu.map((item,index)=>(

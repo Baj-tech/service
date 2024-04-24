@@ -28,7 +28,6 @@ function ServiceList({serviceList,heading='Latest'}) {
                         px-2 text-primary'>{service.attributes?.categories.data[0].attributes?.Name}</h2>
                         <h2 className='font-bold'>{service.attributes.Name}</h2>
                         <h2 className='text-primary text-sm'>{service.attributes?.Year_of_Experience}</h2>
-                        <h2 className='text-gray-500 text-sm'>{service.attributes?.Address}</h2>
                         <Link href={'/details/'+service?.id} className='w-full'>
                         <h2 className='p-2 px-3 border-[1px] border-primary
                         text-primary rounded-full w-full text-center
