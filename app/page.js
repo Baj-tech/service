@@ -1,6 +1,6 @@
 "use client"
 
-
+import Hero from "./_components/Hero";
 import CategorySearch from "./_components/CategorySearch";
 import ServiceList from "./_components/ServiceList";
 import GlobalApi from "./_utils/GlobalApi";
@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div>
         {/* Hero Section  */}
-      
+        <Hero/>
 
         {/* Search bar + Categories  */}
         <CategorySearch/>
