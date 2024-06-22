@@ -17,13 +17,14 @@ import { Button } from '@/components/ui/button'
 function BookAppointment({service}) {
     
     const [note,setNote]=useState();
+    const [email,setEmail]=useState();
     
 
     const saveBooking=()=>{
       const data={
         data:{
 
-          
+          Email:email,
           service:service.id,
           Note:note
         }
@@ -36,7 +37,7 @@ function BookAppointment({service}) {
           GlobalApi.sendEmail(data).then(resp=>{
             console.log(resp)
           })
-          toast("Booking Confirmation sent on Email")
+          toast("Login successful click link above to continue")
         }
       })
     }
@@ -58,7 +59,7 @@ function BookAppointment({service}) {
       <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Mobile number or email" onChange={(e)=>setNote(e.target.value)}/>
     </div>
     <div class="mb-3">
-      <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password"/>
+      <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline" id="user" type="user" placeholder="user" onChange={(e)=>setEmail(e.target.value)}/>
     </div>
   <Dialog>
   <DialogTrigger className='align-middle block w-full mb-2'>   
