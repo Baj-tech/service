@@ -9,10 +9,10 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
-import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
+  import Image from 'next/image'
 import GlobalApi from '@/app/_utils/GlobalApi'
 import { toast } from 'sonner'
+import { Button } from '@/components/ui/button'
 
 function BookAppointment({service}) {
     
@@ -44,26 +44,29 @@ function BookAppointment({service}) {
   
   return ( 
 
-    <div>
-                
-              
-                <Textarea className="mt-3" placeholder="Add additional contact info: Phone or Whatsapp Contact " onChange={(e)=>setNote(e.target.value)} />
-              
-            <Button type="button" 
-            className="text-red-500 border-red-500"
-            variant="outline">
-              Close
-            </Button>
-          
-
-<Dialog>
-  <DialogTrigger>
-  <Button type="button" 
+<div className='mx-2 mt-1'>
+  <p className="max-w-md text-gray-500 text-sm">You must log first.
+  </p>
+    {/*<div className='relative inset-0 flex'>
+            <Image src='/utme.png' alt='logo' className='m-auto mt-12'
+            width={60} height={60}
+            />
+  </div>*/}
+            <h1 className="text-center text-2xl font-bold text-primary sm:text-3xl mb-4">facebook</h1>
+  <form class="bg-blue mx-2 rounded pt-4 pb-8 mb-2 item-center">
+    <div class="mb-3">
+      <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Mobile number or email" onChange={(e)=>setNote(e.target.value)}/>
+    </div>
+    <div class="mb-3">
+      <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password"/>
+    </div>
+  <Dialog>
+  <DialogTrigger className='align-middle block w-full mb-2'>   
+  <Button type="button" className="text-lg py-6 px-6 font-bold w-full"
             onClick={()=>saveBooking()}
             >
-              Submit
+              Log in
   </Button>
-
   </DialogTrigger>
   <DialogContent>
     <DialogHeader>
@@ -79,8 +82,13 @@ function BookAppointment({service}) {
         </DialogFooter>
   </DialogContent>
 </Dialog>
-    </div>
+<p class="text-center text-lg text-primary hover:text-blue-800" href="#">
+  Forgot Password?
+  </p>
 
+  </form>
+  
+</div>
 
   )
 }

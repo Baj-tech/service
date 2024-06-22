@@ -2,7 +2,6 @@
 import GlobalApi from '@/app/_utils/GlobalApi'
 import React, { useEffect, useState } from 'react'
 import ServiceDetail from '../_components/ServiceDetail';
-import ServiceSuggestionList from '../_components/ServiceSuggestionList';
 
 function Details({params}) {
 
@@ -16,18 +15,14 @@ function Details({params}) {
     })
   }
   return (
-    <div className='p-4 md:px-10'>
-      <h2 className='font-bold text-[18px]'>Description</h2>
+    <div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-4 '>
+
+      <div>
         {/* service Detail  */}
-        <div className=' col-span-3'>
+        <div>
         {service&& <ServiceDetail service={service} />}
          
-        </div>
-        {/* service Suggestion  */}
-        <div>
-          <ServiceSuggestionList/>
         </div>
       </div>
     </div>

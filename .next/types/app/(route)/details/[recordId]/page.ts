@@ -1,4 +1,4 @@
-// File: /home/baj/Desktop/service-booking/maximum/app/(route)/details/[recordId]/page.js
+// File: /home/baj/Desktop/service-booking/hack/maximum/app/(route)/details/[recordId]/page.js
 import * as entry from '../../../../../../app/(route)/details/[recordId]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

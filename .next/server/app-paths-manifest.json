@@ -1,6 +1,4 @@
 {
   "/page": "app/page.js",
-  "/(route)/details/[recordId]/page": "app/(route)/details/[recordId]/page.js",
-  "/api/sendEmail/route": "app/api/sendEmail/route.js",
-  "/(route)/search/[cname]/page": "app/(route)/search/[cname]/page.js"
+  "/(route)/details/[recordId]/page": "app/(route)/details/[recordId]/page.js"
 }

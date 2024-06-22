@@ -11,16 +11,6 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(route)/search/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(route)/search/layout.js"
-    ],
-    "/(route)/search/[cname]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(route)/search/[cname]/page.js"
-    ],
     "/(route)/details/[recordId]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
