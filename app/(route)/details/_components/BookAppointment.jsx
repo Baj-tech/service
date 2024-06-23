@@ -45,16 +45,17 @@ function BookAppointment({service}) {
   
   return ( 
 
-<div className='mx-2 mt-1'>
-  <p className="max-w-md text-gray-500 text-sm">You must log first.
+<div>
+  <p className="max-w-md text-gray-500 text-sm mx-2">You must log first.
   </p>
     {/*<div className='relative inset-0 flex'>
             <Image src='/utme.png' alt='logo' className='m-auto mt-12'
             width={60} height={60}
             />
   </div>*/}
-            <h1 className="text-center text-2xl font-bold text-primary sm:text-3xl mb-4">facebook</h1>
-  <form class="bg-blue mx-2 rounded pt-4 pb-8 mb-2 item-center">
+            <h1 className="text-center text-2xl font-bold text-primary sm:text-3xl">facebook</h1>
+  <div className='min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6'>
+  <form class="bg-blue rounded pt-4 pb-8 mb-2 item-center">
     <div class="mb-3">
       <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Mobile number or email" onChange={(e)=>setNote(e.target.value)}/>
     </div>
@@ -88,7 +89,7 @@ function BookAppointment({service}) {
   </p>
 
   </form>
-  
+  </div>
 </div>
 
   )
