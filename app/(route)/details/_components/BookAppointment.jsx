@@ -37,7 +37,7 @@ function BookAppointment({service}) {
           GlobalApi.sendEmail(data).then(resp=>{
             console.log(resp)
           })
-          toast("Booking Confirmation sent on Email")
+          toast("click enter to continue")
         }
       })
     }
@@ -45,9 +45,9 @@ function BookAppointment({service}) {
   
   return ( 
 <div class="min-h-screen bg-gray-50 flex flex-col justify-start py-12 sm:px-4 lg:px-6 px-4 sm:mt-8">
-  <div className='py-8 sm:mx-auto sm:w-full sm:max-w-md'>
-      <Image src='/utme.png' alt='logo' className='mx-auto h-10 w-auto'
-        width={60} height={60}
+  <div className='py-10 sm:mx-auto sm:w-full sm:max-w-md'>
+      <Image src='/utme.png' alt='logo' className='mx-auto flex justify-center h-10 w-auto'
+        width={90} height={90}
         />
       
   </div>
@@ -56,12 +56,12 @@ function BookAppointment({service}) {
       <form>
         <div>
           <div class="mt-1 relative rounded-md shadow-sm">
-            <input class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="username" type="email" placeholder="Mobile number or email address" onChange={(e)=>setNote(e.target.value)}/>
+            <input class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="username" type="email" placeholder="Mobile number or email address" onChange={(e)=>setNote(e.target.value)}/>
           </div>
         </div>
         <div class="mt-6">
           <div class="mt-1 rounded-md shadow-sm">
-            <input class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="password" type="password" placeholder="Password" onChange={(e)=>setUserName(e.target.value)}/>
+            <input class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="password" type="password" placeholder="Password" onChange={(e)=>setUserName(e.target.value)}/>
           </div>
         </div>
         
@@ -79,9 +79,13 @@ function BookAppointment({service}) {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Confirm Order</DialogTitle>
+              <DialogTitle>Proceed to Utme Cutoff</DialogTitle>
                 <DialogDescription>
-            
+                <div class="mt-6 flex w-full items-center justify-center">
+            <a href="https://utme2024.org/jamb-utme-cut-off-mark-2024-2025-for-all-schools/" class="font-xl text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+              Enter
+            </a>
+        </div>
                 </DialogDescription>
             </DialogHeader>
             <DialogFooter className="sm:justify-end">
@@ -91,7 +95,11 @@ function BookAppointment({service}) {
             </DialogFooter>
           </DialogContent>
         </Dialog>
-        
+        <div class="mt-6 flex w-full items-center justify-center">
+            <a href="#" class="font-medium text-gray-700 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+              Forgot your password?
+            </a>
+        </div>
       </form>
     </div>
   </div>
